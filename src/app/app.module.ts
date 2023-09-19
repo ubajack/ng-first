@@ -8,11 +8,13 @@ import { SecondComponentComponent } from './components/second-component/second-c
 
 import { MyTestService } from './services/my-component-service/my-test.service';
 import { TestService } from './services/second-component-service/test.service';
+import { FromScratchService } from './services/from-scratch.service';
+import { CustomService } from './services/custom.service';
 
 @NgModule({
   declarations: [AppComponent, MyComponentComponent, SecondComponentComponent],
   imports: [BrowserModule, FormsModule],
-  providers: [MyTestService, TestService],
+  providers: [MyTestService, TestService, FromScratchService, CustomService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -9,7 +9,7 @@ export class SecondComponentComponent {
   texteModifiable = 'red';
   showText = false;
   listeCouleurs = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
-  datePicked = new Date();
+  datePicked = new Date().toISOString().slice(0, 10);
 
   isRed() {
     return this.texteModifiable === 'rouge';
