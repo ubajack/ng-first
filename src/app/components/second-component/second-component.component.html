@@ -1,1 +1,31 @@
-<p>second-component works!</p>
+<label for="monTexteModifiable">Entrez votre texte: </label>
+<input name="monTexteModifiable" [(ngModel)]="texteModifiable" type="text">
+
+<div>
+    <div>
+        <button (click)="toggleShowText()">TOGGLE</button>
+    </div>
+    <div>
+        <label for="datePicker">Choisissez une date: </label>
+        <input type="date" id="datePicker" name="datePicker" [(ngModel)]="datePicked" />
+        <p>{{ datePicked | date:'fullDate' }}</p>
+    </div>
+</div>
+
+
+
+<div *ngIf="showText">
+    <div [ngSwitch]="texteModifiable">
+        <p *ngSwitchCase="'rouge'">La couleur est rouge</p>
+        <p *ngSwitchCase="'bleu'">La couleur est bleue</p>
+        <p *ngSwitchDefault>La couleur n'est pas enregistrée</p>
+    </div>
+    <p [ngStyle]="{ 'color': texteModifiable }">{{ texteModifiable | uppercase }}</p>
+    <p [ngClass]="{ 'red': isRed(), 'blue': isBlue() }">{{ texteModifiable | uppercase }}</p>
+</div>
+
+<div *ngIf="!showText">
+    <div *ngFor="let couleur of listeCouleurs">
+        <p [ngStyle]="{ 'color': couleur }">{{ couleur }}</p>
+    </div>
+</div>

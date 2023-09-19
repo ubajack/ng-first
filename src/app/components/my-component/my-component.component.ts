@@ -8,6 +8,8 @@ import { MyTestService } from 'src/app/services/my-component-service/my-test.ser
 })
 export class MyComponentComponent {
 
+  texte: string = 'texte';
+
   constructor(private myTestService: MyTestService){}
 
 
