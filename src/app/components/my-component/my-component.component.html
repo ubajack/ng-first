@@ -3,3 +3,11 @@
     {{ letter }}
 </p>
 
+<div>
+    <label for="params">Paramètre: </label>
+    <input [(ngModel)]="param" id="params" name="params" type="text">
+
+    <button (click)="goToParams()">Navigate</button>
+</div>
+
+<a routerLink="/second">Second Component</a>

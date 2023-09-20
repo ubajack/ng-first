@@ -4,6 +4,7 @@
 <div>
     <div>
         <button (click)="toggleShowText()">TOGGLE</button>
+        <button (click)="goHome($event)">Navigate</button>
     </div>
     <div>
         <label for="datePicker">Choisissez une date: </label>
@@ -11,8 +12,6 @@
         <p>{{ datePicked | date:'fullDate' }}</p>
     </div>
 </div>
-
-
 
 <div *ngIf="showText">
     <div [ngSwitch]="texteModifiable">

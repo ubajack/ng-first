@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-second-component',
@@ -11,6 +12,8 @@ export class SecondComponentComponent {
   listeCouleurs = ['red', 'blue', 'green', 'yellow', 'orange', 'purple'];
   datePicked = new Date().toISOString().slice(0, 10);
 
+  constructor(private router: Router){}
+
   isRed() {
     return this.texteModifiable === 'rouge';
   }
@@ -21,5 +24,11 @@ export class SecondComponentComponent {
 
   toggleShowText() {
     this.showText = !this.showText;
+  }
+
+  goHome($event: Event) {
+    console.log('event', $event);
+    $event.preventDefault();
+    this.router.navigate(['/']);
   }
 }

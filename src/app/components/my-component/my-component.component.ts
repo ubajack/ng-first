@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FromScratchService } from 'src/app/services/from-scratch.service';
 import { MyTestService } from 'src/app/services/my-component-service/my-test.service';
 
@@ -11,10 +12,12 @@ export class MyComponentComponent {
 
   texte: string = 'texte';
   listeLettres: string[] = []
+  param = '';
 
   constructor(
     private myTestService: MyTestService,
-    private fromScratchService: FromScratchService
+    private fromScratchService: FromScratchService,
+    private router: Router
     ){
     this.listeLettres = fromScratchService.getData();
   }
@@ -22,6 +25,10 @@ export class MyComponentComponent {
 
   test() {
     this.myTestService.testTheService();
+  }
+
+  goToParams() {
+    this.router.navigate(['parameters', this.param]);
   }
 
 }
