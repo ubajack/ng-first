@@ -3,11 +3,14 @@
     {{ letter }}
 </p>
 
-<div>
+<form (ngSubmit)="goToParams()">
     <label for="params">Paramètre: </label>
-    <input [(ngModel)]="param" id="params" name="params" type="text">
-
-    <button (click)="goToParams()">Navigate</button>
-</div>
+    <input [(ngModel)]="param" id="params" name="params" type="text" #paramInput="ngModel" required minlength="4">
+    <button type="submit" [disabled]="paramInput.invalid">Navigate</button>
+    <p *ngIf="paramInput.errors?.['required'] && paramInput.dirty" class="error">Un paramètre est requis</p>
+    <p *ngIf="paramInput.errors?.['minlength'] && paramInput.dirty" class="error">4 caractères minimum</p>
+</form>
 
 <a routerLink="/second">Second Component</a>
+<hr>
+<a routerLink="/formulaire">Formulaire</a>
