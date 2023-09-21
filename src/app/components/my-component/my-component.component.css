@@ -3,3 +3,20 @@
     font-size: 12px;
     margin-top: 2px;
 }
+
+.services {
+    display: flex;
+    flex-direction: column;
+}
+
+.sample {
+    display: flex;
+}
+
+.sample > p {
+    margin: 2px;
+}
+
+.beers {
+    margin: 10px;
+}
