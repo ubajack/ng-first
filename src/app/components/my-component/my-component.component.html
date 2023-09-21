@@ -3,6 +3,16 @@
     {{ letter }}
 </p>
 
+<button (click)="getBeer()">Get beer</button>
+
+<div *ngIf="beer">
+    <h3>Ma bière</h3>
+    <p>{{ beer.brand }}</p>
+    <p>{{ beer.name }}</p>
+    <p>{{ beer.style }}</p>
+    <p>{{ beer.yeast }}</p>
+</div>
+
 <form (ngSubmit)="goToParams()">
     <label for="params">Paramètre: </label>
     <input [(ngModel)]="param" id="params" name="params" type="text" #paramInput="ngModel" required minlength="4">
