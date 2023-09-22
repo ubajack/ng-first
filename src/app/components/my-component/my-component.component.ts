@@ -15,6 +15,8 @@ export class MyComponentComponent {
   listeLettres: string[] = [];
   param = '';
   beer?: Beer;
+  storedBeersCount = 0;
+  myCount = 0;
 
   constructor(
     private myTestService: MyTestService,
@@ -27,6 +29,19 @@ export class MyComponentComponent {
         this.listeLettres.push(value);
       },
     });
+    // this.storedBeersCount = beerService.getStoreSize();
+    beerService.getLiveStoreSize().subscribe({
+      next: (size) => (this.storedBeersCount = size),
+    });
+  }
+
+  updateCount(value: number) {
+    this.myCount = value;
+  }
+
+  storeBeer() {
+    this.beerService.storeBeer();
+    this.storedBeersCount = this.beerService.getStoreSize();
   }
 
   getBeer() {
@@ -47,5 +62,9 @@ export class MyComponentComponent {
 
   goToParams() {
     this.router.navigate(['parameters', this.param]);
+  }
+
+  goToBeerStore() {
+    this.router.navigate(['beer-store']);
   }
 }

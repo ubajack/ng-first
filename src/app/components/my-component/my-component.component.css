@@ -20,3 +20,11 @@
 .beers {
     margin: 10px;
 }
+
+.beers > button {
+    margin: 2px;
+}
+
+.counter {
+    display: flex;
+}

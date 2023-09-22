@@ -14,9 +14,12 @@ import { FromScratchService } from './services/from-scratch.service';
 import { CustomService } from './services/custom.service';
 import { ParametersComponent } from './components/parameters/parameters.component';
 import { MyFormComponent } from './components/my-form/my-form.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { BeersComponent } from './components/beers/beers.component';
+import { BeerItemComponent } from './components/beer-item/beer-item.component';
 
 @NgModule({
-  declarations: [AppComponent, MyComponentComponent, SecondComponentComponent, ParametersComponent, MyFormComponent],
+  declarations: [AppComponent, MyComponentComponent, SecondComponentComponent, ParametersComponent, MyFormComponent, CounterComponent, BeersComponent, BeerItemComponent],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
   providers: [MyTestService, TestService, FromScratchService, CustomService],
   bootstrap: [AppComponent],

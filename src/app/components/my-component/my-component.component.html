@@ -1,4 +1,6 @@
 <div class="services">
+    <app-counter (countEvent)="updateCount($event)" [count]="myCount" class="counter"></app-counter>
+    <p>Compteur parent: {{ myCount }}</p>
     <div class="sample">
         <p>Données du service: </p>
         <p *ngFor="let letter of listeLettres">
@@ -7,6 +9,9 @@
     </div>
     <div class="beers">
         <button (click)="getBeer()">Get beer</button>
+        <button (click)="storeBeer()">Store beer</button>
+        <button (click)="goToBeerStore()">Show stored beers</button>
+        <p>Beer count: {{ storedBeersCount }}</p>
 
         <div *ngIf="beer">
             <h3>Ma bière</h3>
