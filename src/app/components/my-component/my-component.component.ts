@@ -22,7 +22,11 @@ export class MyComponentComponent {
     private beerService: BeerService,
     private router: Router
   ) {
-    this.listeLettres = fromScratchService.getData();
+    fromScratchService.getData().subscribe({
+      next: (value) => {
+        this.listeLettres.push(value);
+      },
+    });
   }
 
   getBeer() {
